@@ -1,0 +1,393 @@
+<html>
+<head>
+    <title>Travel Agency</title>
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .w-1\/4.p-4 {
+  transition: transform 0.3s; /* add transition effect */
+  transform: translateZ(0); /* add perspective */
+}
+
+.w-1\/4.p-4:hover {
+  transform: scale(1.1); /* scale up on hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* add box shadow on hover */
+}
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+    const [tourType, setTourType] = React.useState('public');
+
+    const toggleTourType = (type) => {
+        setTourType(type);
+    };
+            return (
+                <div>
+                    <header className="bg-cover bg-center h-screen" style={{ backgroundImage: "url('Hero Page/hero_bg.png')" }}>
+                        <div className="bg-black bg-opacity-50 h-full">
+                            <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div className="flex items-center">
+        <img src="logo.svg" alt="Logo" className="h-32 w-32 mr-2" />
+        
+    </div>
+    <ul className="flex space-x-6 text-white">
+        <li><a href="#" className="hover:text-orange-500">Home</a></li>
+        <li><a href="#" className="hover:text-orange-500">About Us</a></li>
+        <li><a href="#" className="hover:text-orange-500">Tour Packages</a></li>
+        <li><a href="#" className="hover:text-orange-500">Contact Us</a></li>
+    </ul>
+    <div className="flex space-x-4">
+        <a href="#" className="text-white hover:text-orange-500">Login</a>
+        <a href="#" className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Sign Up</a>
+    </div>
+</nav>
+                            <div className="container mx-auto text-center text-white mt-20">
+                <h1 className="text-4xl font-bold">Enjoy in the best way!</h1>
+                <p className="mt-4">Enjoy our services for your trip anytime</p>
+                <div className="mt-8 bg-white bg-opacity-80 p-6 rounded-lg inline-block">
+                    <div className="flex space-x-4">
+                        <button 
+                            className={`px-4 py-2 rounded ${tourType === 'public' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                            onClick={() => toggleTourType('public')}
+                        >
+                            Public Tour
+                        </button>
+                        <button 
+                            className={`px-4 py-2 rounded ${tourType === 'private' ? 'bg-orange-500 text-white' : 'bg-gray-200 text-gray-700'}`}
+                            onClick={() => toggleTourType('private')}
+                        >
+                            Private Tour
+                        </button>
+                    </div>
+                    <div className="mt-4 flex space-x-4">
+                        <input type="number" placeholder="Number of people" className="p-2 border rounded w-1/4 text-black" />
+                        <input type="date" className="p-2 border rounded w-1/4 text-black" />
+                        <input type="time" className="p-2 border rounded w-1/4 text-black" />
+                        <input type="text" placeholder="Tour" className="p-2 border rounded w-1/4 text-black" />
+                        <input type="text" placeholder="Transportation" className="p-2 border rounded w-1/4 text-black" />
+                        <button className="bg-orange-500 text-white px-4 py-2 rounded"><i className="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+                        </div>
+                    </header>
+
+                    <section className="container mx-auto px-6 py-16">
+    <h2 className="text-3xl font-bold text-center">Explore Our Popular Destinations</h2>
+    <div className="flex justify-center mt-8">
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_1.svg" alt="Lucca Bike Tour" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Lucca Bike Tour</h3>
+            <p className="text-orange-500">from 34 €</p>
+            <p className="mt-2">A wonderful experience to discover the city by pedaling along...</p>
+            <div className="flex justify-between mt-4">
+                <div className="flex items-center">
+                    <i className="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <span>9:00 AM - 5:00 PM</span>
+                </div>
+                <div className="flex items-center">
+                    <i className="fas fa-users text-gray-500 mr-2"></i>
+                    <span>10-20 ppl</span>
+                </div>
+            </div>
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_2.svg" alt="Wine tasting in Tuscany" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Wine tasting in Tuscany</h3>
+            <p className="text-orange-500">from 34 €</p>
+            <p className="mt-2">Taste the magic of the wines and enjoy the production directly...</p>
+            <div className="flex justify-between mt-4">
+                <div className="flex items-center">
+                    <i className="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <span>10:00 AM - 6:00 PM</span>
+                </div>
+                <div className="flex items-center">
+                    <i className="fas fa-users text-gray-500 mr-2"></i>
+                    <span>10-20 ppl</span>
+                </div>
+            </div>
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_3.svg" alt="Cinque Terre Tour" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Cinque Terre Tour</h3>
+            <p className="text-orange-500">from 34 €</p>
+            <p className="mt-2">Visit the 5 lands of the area and enjoy the breathtaking views...</p>
+            <div className="flex justify-between mt-4">
+                <div className="flex items-center">
+                    <i className="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <span>9:00 AM - 5:00 PM</span>
+                </div>
+                <div className="flex items-center">
+                    <i className="fas fa-users text-gray-500 mr-2"></i>
+                    <span>10-20 ppl</span>
+                </div>
+            </div>
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_4.svg" alt="Siena and Surroundings" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Siena and Surroundings</h3>
+            <p className="text-orange-500">from 34 €</p>
+            <p className="mt-2">Discover the beauty of Siena and its surroundings...</p>
+            <div className="flex justify-between mt-4">
+                <div className="flex items-center">
+                    <i className="fas fa-calendar-alt text-gray-500 mr-2"></i>
+                    <span>10:00 AM - 6:00 PM</span>
+                </div>
+                <div className="flex items-center">
+                    <i className="fas fa-users text-gray-500 mr-2"></i>
+                    <span>10-20 ppl</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+                    <section className="bg-gray-100 py-16">
+                        <div className="container mx-auto px-6">
+                            <div className="flex items-center">
+                                <div className="w-1/2">
+                                    <img src="Hero Page\best_company\best_company01.svg" alt="Woman with map" className="rounded-lg" />
+                                </div>
+                                <div className="w-1/2 pl-8">
+                                    <h2 className="text-3xl font-bold">We are the best company for your visit</h2>
+                                    <p className="mt-4">After decades of experience, we provide the best services for your travel needs. Our team is dedicated to making your trip unforgettable.</p>
+                                    <div className="mt-8 flex space-x-8">
+                                        <div>
+                                            <h3 className="text-xl font-semibold">20+</h3>
+                                            <p>Years of Experience</p>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-semibold">100+</h3>
+                                            <p>Happy Customers</p>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-semibold">15+</h3>
+                                            <p>Tour Packages</p>
+                                        </div>
+                                        <div>
+                                            <h3 className="text-xl font-semibold">10+</h3>
+                                            <p>Professional Guides</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="bg-orange-100 py-16">
+    <div className="container mx-auto px-6 flex justify-between">
+        <div className="w-1/2 pr-8 flex justify-end">
+            <div className="bg-white bg-opacity-50 p-8 rounded-lg shadow-lg w-3/4">
+                <h2 className="text-3xl font-bold">Get Special Offers for Organizations</h2>
+                <p className="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna.</p>
+                <button className="mt-8 bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">Contact Us</button>
+            </div>
+        </div>
+        <div className="w-1/2 pl-8">
+            <img src="Hero Page\special_offers\special_offers01.svg" alt="Image Right" className="rounded-lg" />
+        </div>
+    </div>
+</section>
+<section className="container mx-auto px-6 py-16">
+    
+    <div className="flex justify-center mt-8">
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_1.svg" alt="Lucca Bike Tour" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Bike and rikshaw rental</h3>
+            
+            <p className="mt-2">book your quality vehicle quickly for an hour</p>
+            
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_2.svg" alt="Wine tasting in Tuscany" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Guided tour of the countryside</h3>
+            
+            <p className="mt-2">live the  real lucchesse experience by visiting the suburbs by bike</p>
+            
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_3.svg" alt="Cinque Terre Tour" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Taxi And NCC Service</h3>
+           
+            <p className="mt-2">do u need not only the bike but also the driver congrats u found the right place</p>
+            
+        </div>
+        <div className="w-1/4 p-4">
+            <img src="Hero Page\popular_dest\popular_dest_4.svg" alt="Siena and Surroundings" className="rounded-lg" />
+            <h3 className="text-xl font-semibold mt-4">Bus package</h3>
+            
+            <p className="mt-2">do you nedd not only the bus but  also the driver congrats u found the right place</p>
+
+            
+        </div>
+    </div>
+</section>
+                    <section className="container mx-auto px-6 py-16">
+                        <h2 className="text-3xl font-bold text-center">Book Now Bike</h2>
+                        <div className="flex justify-center mt-8">
+                            <div className="w-1/2 p-4">
+                                <form className="bg-white p-6 rounded-lg shadow-lg">
+                                    <div className="flex space-x-4">
+                                        <input type="text" placeholder="Name and Surname" className="p-2 border rounded w-1/2" />
+                                        <input type="email" placeholder="Email Address" className="p-2 border rounded w-1/2" />
+                                    </div>
+                                    <div className="flex space-x-4 mt-4">
+                                        <input type="tel" placeholder="Telephone Number" className="p-2 border rounded w-1/2" />
+                                        <input type="text" placeholder="Service Type" className="p-2 border rounded w-1/2" />
+                                    </div>
+                                    <div className="flex space-x-4 mt-4">
+                                        <input type="date" className="p-2 border rounded w-1/2" />
+                                        <input type="time" className="p-2 border rounded w-1/2" />
+                                    </div>
+                                    <button className="mt-4 bg-orange-500 text-white px-6 py-3 rounded hover:bg-orange-600">Book Now</button>
+                                </form>
+                            </div>
+                            <div className="w-1/2 p-4">
+                                <img src="Hero Page\book_a_bike\bike picture.png" alt="Bike" className="rounded-lg" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="container mx-auto px-6 py-16">
+                        <h2 className="text-3xl font-bold text-center">The Most Popular Packages</h2>
+                        <div className="flex justify-center mt-8">
+                            <div className="w-1/4 p-4">
+                                <img src="Hero Page\popular_package\pop_package01.svg" alt="Bike / Rickshaw" className="rounded-lg" />
+                                <h3 className="text-xl font-semibold mt-4">Bike / Rickshaw</h3>
+                                <p className="text-orange-500">from 10 €</p>
+                                <ul className="mt-2">
+                                    <li>For two hours a day</li>
+                                    <li>24/7 Customer service</li>
+                                    <li>Free cancellation</li>
+                                    <li>Guaranteed support</li>
+                                </ul>
+                                <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Book Now</button>
+                            </div>
+                            <div className="w-1/4 p-4">
+                                <img src="Hero Page\popular_package\pop_package02.svg" alt="Bike Tours" className="rounded-lg" />
+                                <h3 className="text-xl font-semibold mt-4">Bike Tours</h3>
+                                <p className="text-orange-500">from 30 €</p>
+                                <ul className="mt-2">
+                                    <li>For two hours a day</li>
+                                    <li>24/7 Customer service</li>
+                                    <li>Free cancellation</li>
+                                    <li>Guaranteed support</li>
+                                </ul>
+                                <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Book Now</button>
+                            </div>
+                            <div className="w-1/4 p-4">
+                                <img src="Hero Page\popular_package\pop_package03.svg" alt="Bus Trips" className="rounded-lg" />
+                                <h3 className="text-xl font-semibold mt-4">Bus Trips</h3>
+                                <p className="text-orange-500">from 45 €</p>
+                                <ul className="mt-2">
+                                    <li>For two hours a day</li>
+                                    <li>24/7 Customer service</li>
+                                    <li>Free cancellation</li>
+                                    <li>Guaranteed support</li>
+                                </ul>
+                                <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Book Now</button>
+                            </div>
+                            <div className="w-1/4 p-4">
+                                <img src="Hero Page\popular_package\pop_package04.svg" alt="Transfer" className="rounded-lg" />
+                                <h3 className="text-xl font-semibold mt-4">Transfer</h3>
+                                <p className="text-orange-500">from 10 €</p>
+                                <ul className="mt-2">
+                                    <li>For two hours a day</li>
+                                    <li>24/7 Customer service</li>
+                                    <li>Free cancellation</li>
+                                    <li>Guaranteed support</li>
+                                </ul>
+                                <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600">Book Now</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="container mx-auto px-6 py-16">
+                        <h2 className="text-3xl font-bold text-center">Happy Customers Says</h2>
+                        <div className="flex justify-center mt-8">
+                            <div className="w-1/2 p-4">
+                                <div className="bg-white p-6 rounded-lg shadow-lg">
+                                    <p className="text-gray-700">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna."</p>
+                                    <div className="mt-4 flex items-center">
+                                        <img src="https://placehold.co/50x50" alt="Customer" className="rounded-full" />
+                                        <div className="ml-4">
+                                            <h3 className="text-xl font-semibold">Loyal Customer</h3>
+                                            <p className="text-gray-500">Traveler</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="w-1/2 p-4">
+                                <div className="bg-white p-6 rounded-lg shadow-lg">
+                                    <p className="text-gray-700">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo mollis, auctor consequat urna."</p>
+                                    <div className="mt-4 flex items-center">
+                                        <img src="https://placehold.co/50x50" alt="Customer" className="rounded-full" />
+                                        <div className="ml-4">
+                                            <h3 className="text-xl font-semibold">Loyal Customer</h3>
+                                            <p className="text-gray-500">Traveler</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <footer className="bg-gray-800 text-white py-16">
+                        <div className="container mx-auto px-6">
+                            <div className="flex justify-between">
+                                <div>
+                                    <h3 className="text-xl font-semibold">Services</h3>
+                                    <ul className="mt-4">
+                                        <li><a href="#" className="hover:text-orange-500">Bike and Rickshaw rental</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">Guided tour of the countryside</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">Taxi and NCC service</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">Bus Package</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold">Help</h3>
+                                    <ul className="mt-4">
+                                        <li><a href="#" className="hover:text-orange-500">Terms of Use</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">Privacy Policy</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold">Contacts</h3>
+                                    <ul className="mt-4">
+                                        <li><a href="#" className="hover:text-orange-500">Siena and Florence, Tuscany</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">+39 123 456 789</a></li>
+                                        <li><a href="#" className="hover:text-orange-500">hello@travel.com</a></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold">Social Media</h3>
+                                    <ul className="mt-4 flex space-x-4">
+                                        <li><a href="#" className="hover:text-orange-500"><i className="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#" className="hover:text-orange-500"><i className="fab fa-twitter"></i></a></li>
+                                        <li><a href="#" className="hover:text-orange-500"><i className="fab fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="mt-8 text-center">
+                                <p>&copy; 2023 Travel Agency. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
